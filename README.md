@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# رزروپلاس - سیستم رزرواسیون چندمنظوره
 
-## Getting Started
+یک سایت فروش حرفه‌ای برای معرفی سیستم رزرواسیون چندمنظوره که برای انواع مختلف کسب‌وکارها طراحی شده است. این سیستم قابلیت ایجاد مارکت‌پلیس چندمنظوره را دارد و می‌تواند برای باشگاه‌های ورزشی، سینما، تئاتر، کانترهای ساعتی و هر نوع کسب‌وکاری که نیاز به رزرواسیون دارد استفاده شود.
 
-First, run the development server:
+## ویژگی‌ها
 
+- 🎨 طراحی مدرن و جذاب با پالت رنگ حرفه‌ای
+- 📱 کاملاً ریسپانسیو و بهینه‌شده برای موبایل
+- ⚡ انیمیشن‌های جذاب با Framer Motion
+- 🔍 بهینه‌سازی شده برای SEO
+- 🌐 پشتیبانی کامل از زبان فارسی
+- 🚀 آماده برای GitHub Pages
+
+## تکنولوژی‌های استفاده شده
+
+- **Next.js 15** - فریمورک React
+- **TypeScript** - تایپ‌اسکریپت
+- **Tailwind CSS** - استایل‌دهی
+- **Framer Motion** - انیمیشن‌ها
+- **Lucide React** - آیکون‌ها
+- **Vazirmatn** - فونت فارسی
+
+## پالت رنگ
+
+### پالت اصلی
+- **Mocha Mousse**: `#A89078` - پس‌زمینه اصلی
+- **Deep Navy**: `#1A3C5E` - متن‌ها و منوها
+- **Ruby Red**: `#D1495B` - دکمه‌های رزرو
+- **Honey Gold**: `#F4A261` - آیکون‌ها و لینک‌ها
+- **Soft Cream**: `#F8F1E9` - پس‌زمینه روشن
+
+### پالت ثانویه
+- **Serene Teal**: `#4ABDAC` - پس‌زمینه رزروها
+- **Vibrant Green**: `#52B788` - دکمه‌های اصلی
+- **Soft Lavender**: `#A8A4FF` - تقویم و جزئیات
+- **Light Gray**: `#F0F0F0` - جدول‌ها و فرم‌ها
+- **Charcoal**: `#333333` - متن‌های اصلی
+
+## نصب و راه‌اندازی
+
+1. کلون کردن پروژه:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/reservation-platform.git
+cd reservation-platform
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. نصب وابستگی‌ها:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. اجرای پروژه در حالت توسعه:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. باز کردن مرورگر و رفتن به `http://localhost:3000`
 
-## Learn More
+## ساخت برای تولید
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## استقرار در GitHub Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run deploy
+```
 
-## Deploy on Vercel
+## ساختار پروژه
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/
+│   ├── globals.css          # استایل‌های全局
+│   ├── layout.tsx           # لایه اصلی
+│   └── page.tsx             # صفحه اصلی
+├── components/              # کامپوننت‌های قابل استفاده مجدد
+└── public/
+    └── images/              # تصاویر و فایل‌های استاتیک
+        └── admin-panel/     # تصاویر پنل مدیریت
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## بخش‌های سایت
+
+1. **Hero Section** - معرفی اصلی سیستم
+2. **Industries** - انواع کسب‌وکارهای هدف
+3. **Features** - ویژگی‌های سیستم
+4. **Admin Panel** - نمایش پنل مدیریت
+5. **Pricing** - قیمت‌گذاری
+6. **Testimonials** - نظرات مشتریان
+7. **Contact** - اطلاعات تماس
+
+## بهینه‌سازی SEO
+
+- متا تگ‌های کامل
+- ساختار داده‌های JSON-LD
+- Open Graph و Twitter Cards
+- بهینه‌سازی تصاویر
+- سرعت بارگذاری بالا
+- Mobile-first design
+
+## پشتیبانی
+
+برای سوالات و پشتیبانی با ما تماس بگیرید:
+- ایمیل: info@reservplus.ir
+- تلفن: 021-12345678
+
+## لایسنس
+
+این پروژه تحت لایسنس MIT منتشر شده است.
