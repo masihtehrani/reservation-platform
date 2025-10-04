@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/reservation-platform' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/reservation-platform' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/reservation-platform' : '',
+  // basePath: process.env.NODE_ENV === 'production' ? '/reservation-platform' : '',
   experimental: {
     optimizeCss: true,
   },
