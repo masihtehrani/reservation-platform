@@ -432,7 +432,10 @@ export default function ReservationPlatform() {
                 </svg>
               </button>
             </div>
-            <motion.button 
+            <motion.a 
+            href="https://miroteam.ir" 
+            target="_blank" 
+            rel="noopener noreferrer"
             whileHover={{ 
               scale: 1.05,
               y: -5,
@@ -442,13 +445,11 @@ export default function ReservationPlatform() {
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
-              className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all"
+              className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center"
             >
-              <a href="https://miroteam.ir" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <Phone className="w-4 h-4 ml-2" />
-                تماس با تیم
-              </a>
-            </motion.button>
+              <Phone className="w-4 h-4 ml-2" />
+              تماس با تیم
+            </motion.a>
           </div>
         </div>
       </motion.nav>
@@ -487,15 +488,11 @@ export default function ReservationPlatform() {
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
-                  className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all"
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center w-full"
                 >
-                  <button 
-                    onClick={() => setIsContactModalOpen(true)}
-                    className="flex items-center justify-center w-full"
-                  >
-                    <Play className="w-5 h-5 ml-2" />
-                    مشاهده دمو سیستم
-                  </button>
+                  <Play className="w-5 h-5 ml-2" />
+                  مشاهده دمو سیستم
                 </motion.button>
                 <motion.button 
             whileHover={{ 
@@ -507,15 +504,11 @@ export default function ReservationPlatform() {
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
-                  className="border-2 border-[#4ABDAC] text-[#4ABDAC] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-[#4ABDAC] hover:text-white transition-all"
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="border-2 border-[#4ABDAC] text-[#4ABDAC] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-[#4ABDAC] hover:text-white transition-all flex items-center justify-center w-full"
                 >
-                  <button 
-                    onClick={() => setIsContactModalOpen(true)}
-                    className="flex items-center justify-center w-full"
-                  >
-                    <Phone className="w-5 h-5 ml-2" />
-                    تماس برای استعلام قیمت
-                  </button>
+                  <Phone className="w-5 h-5 ml-2" />
+                  تماس برای استعلام قیمت
                 </motion.button>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 text-center">
@@ -1051,15 +1044,11 @@ export default function ReservationPlatform() {
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
-                className="bg-white text-[#4ABDAC] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all"
+                onClick={() => setIsContactModalOpen(true)}
+                className="bg-white text-[#4ABDAC] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center w-full"
               >
-                <button 
-                  onClick={() => setIsContactModalOpen(true)}
-                  className="flex items-center justify-center w-full"
-                >
-                  <Play className="w-5 h-5 ml-2" />
-                  درخواست دمو رایگان
-                </button>
+                <Play className="w-5 h-5 ml-2" />
+                درخواست دمو رایگان
               </motion.button>
               <motion.button 
             whileHover={{ 
@@ -1071,15 +1060,11 @@ export default function ReservationPlatform() {
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#4ABDAC] transition-all"
+                onClick={() => setIsContactModalOpen(true)}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#4ABDAC] transition-all flex items-center justify-center w-full"
               >
-                <button 
-                  onClick={() => setIsContactModalOpen(true)}
-                  className="flex items-center justify-center w-full"
-                >
-                  <Phone className="w-5 h-5 ml-2" />
-                  تماس برای استعلام قیمت
-                </button>
+                <Phone className="w-5 h-5 ml-2" />
+                تماس برای استعلام قیمت
               </motion.button>
             </div>
           </motion.div>
