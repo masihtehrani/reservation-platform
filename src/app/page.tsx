@@ -326,6 +326,128 @@ export default function ReservationPlatform() {
               <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">مدیریت کاربران</h3>
               <p className="text-[#333333] leading-relaxed">سیستم مدیریت کاربران با سطح‌بندی مختلف</p>
             </div>
+            
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#4ABDAC] to-[#52B788] rounded-lg flex items-center justify-center mb-6">
+                <Database className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">ورودی داده‌ها</h3>
+              <p className="text-[#333333] leading-relaxed">امکان وارد کردن سانس‌ها به صورت دستی، تک‌تک یا دسته‌ای با فایل Excel</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#F4A261] to-[#A8A4FF] rounded-lg flex items-center justify-center mb-6">
+                <Upload className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">ورودی دسته‌ای Excel</h3>
+              <p className="text-[#333333] leading-relaxed">امکان وارد کردن هزاران سانس به صورت یکجا با فایل Excel</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#D1495B] to-[#F4A261] rounded-lg flex items-center justify-center mb-6">
+                <Settings className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">تنظیمات پیشرفته</h3>
+              <p className="text-[#333333] leading-relaxed">کنترل کامل بر تمام جنبه‌های سیستم: قیمت‌گذاری، تخفیف‌ها، قوانین رزرو</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#A8A4FF] to-[#D1495B] rounded-lg flex items-center justify-center mb-6">
+                <Crown className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">سیستم سطح‌بندی</h3>
+              <p className="text-[#333333] leading-relaxed">مدیریت کاربران با دسترسی‌های مختلف: مدیر کل، مدیر کسب‌وکار، حسابدار، اپراتور و مشتری</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#52B788] to-[#4ABDAC] rounded-lg flex items-center justify-center mb-6">
+                <Download className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">گزارش‌گیری جامع</h3>
+              <p className="text-[#333333] leading-relaxed">خروجی گزارش‌ها در فرمت‌های مختلف: Excel، PDF، CSV. آنالیز کامل عملکرد و درآمد</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketplace Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A3C5E] mb-4">
+              <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">مارکت‌پلیس</span> چندمنظوره
+            </h2>
+            <p className="text-xl text-[#333333] max-w-4xl mx-auto">
+              قابلیت ایجاد یک پلتفرم جامع که چندین کسب‌وکار می‌توانند در آن حضور داشته باشند و خدمات خود را ارائه دهند
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="bg-gradient-to-r from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#4ABDAC] to-[#52B788] rounded-lg flex items-center justify-center ml-4">
+                    <Building className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#1A3C5E]">مدیریت چندین کسب‌وکار</h3>
+                </div>
+                <p className="text-[#333333] leading-relaxed">
+                  هر باشگاه، سینما، تئاتر یا پاساژ می‌تواند پروفایل اختصاصی خود را داشته باشد و سانس‌های خود را مدیریت کند.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#F4A261] to-[#A8A4FF] rounded-lg flex items-center justify-center ml-4">
+                    <UserCheck className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#1A3C5E]">سطح‌بندی کاربران</h3>
+                </div>
+                <p className="text-[#333333] leading-relaxed">
+                  سیستم مدیریت کاربران با دسترسی‌های مختلف: مدیر کل، مدیر کسب‌وکار، حسابدار، اپراتور و مشتری.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#D1495B] to-[#F4A261] rounded-lg flex items-center justify-center ml-4">
+                    <FileText className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#1A3C5E]">ورودی داده‌ها</h3>
+                </div>
+                <p className="text-[#333333] leading-relaxed">
+                  امکان وارد کردن سانس‌ها به صورت دستی، تک‌تک یا دسته‌ای با فایل Excel برای مدیریت آسان داده‌های حجیم.
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-gradient-to-br from-[#4ABDAC] to-[#52B788] rounded-2xl p-8 text-white">
+                <h3 className="text-2xl font-bold mb-6 text-center">مثال‌های کاربردی</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3 space-x-reverse">
+                    <Dumbbell className="w-6 h-6" />
+                    <span>چندین باشگاه ورزشی در یک پلتفرم</span>
+                  </div>
+                  <div className="flex items-center space-x-3 space-x-reverse">
+                    <Film className="w-6 h-6" />
+                    <span>مجموعه‌ای از سینماها و تئاترها</span>
+                  </div>
+                  <div className="flex items-center space-x-3 space-x-reverse">
+                    <Building2 className="w-6 h-6" />
+                    <span>کانترهای ساعتی در پاساژها</span>
+                  </div>
+                  <div className="flex items-center space-x-3 space-x-reverse">
+                    <Theater className="w-6 h-6" />
+                    <span>سالن‌های کنسرت و نمایش</span>
+                  </div>
+                  <div className="flex items-center space-x-3 space-x-reverse">
+                    <Globe className="w-6 h-6" />
+                    <span>هر نوع کسب‌وکاری که نیاز به رزرو دارد</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -379,6 +501,106 @@ export default function ReservationPlatform() {
                   <span className="text-[#333333]">نمودارهای عملکرد</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A3C5E] mb-4">
+              نظر <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">مشتریان</span> ما
+            </h2>
+            <p className="text-xl text-[#333333] max-w-3xl mx-auto">
+              بیش از 500 کسب‌وکار در سراسر کشور به رزروپلاس اعتماد کرده‌اند
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-r from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <NextImage 
+                  src="/images/industries/sports.svg" 
+                  alt="علیرضا محمدی"
+                  width={64}
+                  height={64}
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+                <div className="mr-4">
+                  <h4 className="font-semibold text-[#1A3C5E]">علیرضا محمدی</h4>
+                  <p className="text-[#333333] text-sm">مدیر باشگاه ورزشی اسپرت</p>
+                  <div className="flex items-center mt-1">
+                    <div className="flex text-yellow-400 mr-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-sm text-[#4ABDAC] font-medium">باشگاه ورزشی</span>
+                    <span className="text-sm text-[#52B788] font-bold mr-2">+45%</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[#333333] leading-relaxed text-lg">
+                "بعد از استفاده از سیستم رزرواسیون، درآمد باشگاه ما 45% افزایش یافت. سیستم بسیار کاربرپسند و پشتیبانی عالی است."
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-r from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <NextImage 
+                  src="/images/industries/counter.svg" 
+                  alt="سارا احمدی"
+                  width={64}
+                  height={64}
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+                <div className="mr-4">
+                  <h4 className="font-semibold text-[#1A3C5E]">سارا احمدی</h4>
+                  <p className="text-[#333333] text-sm">مدیر کانتر ساعتی پاساژ</p>
+                  <div className="flex items-center mt-1">
+                    <div className="flex text-yellow-400 mr-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-sm text-[#4ABDAC] font-medium">کانتر ساعتی</span>
+                    <span className="text-sm text-[#52B788] font-bold mr-2">+60%</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[#333333] leading-relaxed text-lg">
+                "سیستم بسیار پیشرفته و در عین حال ساده است. مشتریان ما از رزرو آنلاین راضی هستند و ما زمان بیشتری برای مدیریت بهتر داریم."
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-r from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <NextImage 
+                  src="/images/industries/cinema.svg" 
+                  alt="حسین رضایی"
+                  width={64}
+                  height={64}
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+                <div className="mr-4">
+                  <h4 className="font-semibold text-[#1A3C5E]">حسین رضایی</h4>
+                  <p className="text-[#333333] text-sm">صاحب کمپلکس سینما</p>
+                  <div className="flex items-center mt-1">
+                    <div className="flex text-yellow-400 mr-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-sm text-[#4ABDAC] font-medium">سینما</span>
+                    <span className="text-sm text-[#52B788] font-bold mr-2">+35%</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[#333333] leading-relaxed text-lg">
+                "سیستم به ما کمک کرد کسب‌وکار خود را به شکل حرفه‌ای مدیریت کنیم. گزارش‌های دقیق و آنالیز داده‌ها بسیار مفید است."
+              </p>
             </div>
           </div>
         </div>
@@ -460,6 +682,7 @@ export default function ReservationPlatform() {
                 <li><a href="#features" className="text-gray-300 hover:text-white transition-colors">ویژگی‌ها</a></li>
                 <li><a href="#admin-panel" className="text-gray-300 hover:text-white transition-colors">پنل مدیریت</a></li>
                 <li><a href="#pricing" className="text-gray-300 hover:text-white transition-colors">قیمت‌ها</a></li>
+                <li><a href="#testimonials" className="text-gray-300 hover:text-white transition-colors">مشتریان</a></li>
               </ul>
             </div>
             
