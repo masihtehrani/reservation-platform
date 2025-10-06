@@ -371,7 +371,7 @@ export default function ReservationPlatform() {
       </section>
 
       {/* Marketplace Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-[#F8F1E9] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1A3C5E] mb-4">
@@ -452,6 +452,9 @@ export default function ReservationPlatform() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="h-1 bg-gradient-to-r from-[#52B788] to-[#4ABDAC]"></div>
+
       {/* Admin Panel Section */}
       <section id="admin-panel" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -506,8 +509,11 @@ export default function ReservationPlatform() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="h-1 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]"></div>
+
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white">
+      <section id="testimonials" className="py-20 bg-gradient-to-br from-[#F0F8FF] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1A3C5E] mb-4">
@@ -606,6 +612,9 @@ export default function ReservationPlatform() {
         </div>
       </section>
 
+      {/* Divider */}
+      <div className="h-1 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]"></div>
+
       {/* Pricing Section */}
       <section id="pricing" className="py-20 bg-gradient-to-br from-[#F8F1E9] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -627,6 +636,9 @@ export default function ReservationPlatform() {
           </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="h-1 bg-gradient-to-r from-[#52B788] to-[#4ABDAC]"></div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]">
@@ -655,6 +667,9 @@ export default function ReservationPlatform() {
           </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="h-1 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]"></div>
 
       {/* Footer */}
       <footer id="contact" className="bg-[#1A3C5E] text-white py-12">
