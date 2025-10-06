@@ -34,7 +34,6 @@ import {
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import NextImage from 'next/image';
-import Head from 'next/head';
 
 export default function ReservationPlatform() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -338,74 +337,14 @@ export default function ReservationPlatform() {
   }, [adminFeatures.length, isMounted]);
 
   return (
-    <>
-      <Head>
-        <title>سیستم رزرواسیون حرفه‌ای رزروپلاس | مدیریت رزرو آنلاین</title>
-        <meta name="description" content="سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی. افزایش 40% درآمد با مدیریت هوشمند رزروها." />
-        <meta name="keywords" content="سیستم رزرواسیون, رزرو آنلاین, مدیریت باشگاه, رزرو سینما, رزرو تئاتر, کانتر ساعتی, پنل مدیریت, نرم‌افزار رزرو" />
-        <meta name="author" content="رزروپلاس" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="سیستم رزرواسیون حرفه‌ای رزروپلاس" />
-        <meta property="og:description" content="سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی. افزایش 40% درآمد با مدیریت هوشمند رزروها." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://reservplus.ir" />
-        <meta property="og:image" content="https://reservplus.ir/images/hero-dashboard.svg" />
-        <meta property="og:locale" content="fa_IR" />
-        
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="سیستم رزرواسیون حرفه‌ای رزروپلاس" />
-        <meta name="twitter:description" content="سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی." />
-        <meta name="twitter:image" content="https://reservplus.ir/images/hero-dashboard.svg" />
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://reservplus.ir" />
-        
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
-        
-        {/* Schema.org Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "رزروپلاس - سیستم رزرواسیون حرفه‌ای",
-            "description": "سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی",
-            "url": "https://reservplus.ir",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "IRR",
-              "description": "تماس برای استعلام قیمت"
-            },
-            "provider": {
-              "@type": "Organization",
-              "name": "رزروپلاس",
-              "url": "https://reservplus.ir",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+98-912-345-6789",
-                "contactType": "customer service",
-                "availableLanguage": "Persian"
-              }
-            }
-          })}
-        </script>
-      </Head>
-      
-      <div className="min-h-screen bg-gradient-to-br from-[#F8F1E9] via-white to-[#F0F0F0]">
+    <div className="min-h-screen bg-gradient-to-br from-[#F8F1E9] via-white to-[#F0F0F0]" suppressHydrationWarning>
       {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-[#A89078]/20"
-      >
+      {isMounted && (
+        <motion.nav 
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-[#A89078]/20"
+        >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -452,19 +391,21 @@ export default function ReservationPlatform() {
             </motion.a>
           </div>
         </div>
-      </motion.nav>
+        </motion.nav>
+      )}
 
       {/* Hero Section */}
       <section id="home" className="pt-20 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#A89078]/10 via-transparent to-[#4ABDAC]/10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-right"
-            >
+            {isMounted ? (
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-right"
+              >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="block text-[#1A3C5E]">خرید سیستم رزرواسیون</span>
                 <span className="block bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">
@@ -539,14 +480,61 @@ export default function ReservationPlatform() {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+              </motion.div>
+            ) : (
+              <div className="text-right">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  <span className="block text-[#1A3C5E]">خرید سیستم رزرواسیون</span>
+                  <span className="block bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">
+                    پلتفرم رزرو حرفه‌ای
+                  </span>
+                </h1>
+                <p className="text-lg sm:text-xl md:text-2xl mb-8 text-[#333333] leading-relaxed">
+                  <strong>نرم‌افزار رزرواسیون</strong> چندمنظوره برای هر نوع کسب‌وکاری که نیاز به <strong>رزرو آنلاین</strong> دارد. 
+                  از باشگاه‌های ورزشی تا سینما، تئاتر و کانترهای ساعتی.
+                  <br />
+                  <span className="font-semibold text-[#4ABDAC]">افزایش 40% درآمد</span> با <strong>سیستم رزرواسیون پیشرفته</strong>.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                  <button 
+                    onClick={() => setIsContactModalOpen(true)}
+                    className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center w-full"
+                  >
+                    <Play className="w-5 h-5 ml-2" />
+                    مشاهده دمو سیستم
+                  </button>
+                  <button 
+                    onClick={() => setIsContactModalOpen(true)}
+                    className="border-2 border-[#4ABDAC] text-[#4ABDAC] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-[#4ABDAC] hover:text-white transition-all flex items-center justify-center w-full"
+                  >
+                    <Phone className="w-5 h-5 ml-2" />
+                    تماس برای استعلام قیمت
+                  </button>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 text-center">
+                  {stats.map((stat) => (
+                    <div 
+                      key={stat.label}
+                      className="bg-white rounded-xl p-4 shadow-lg"
+                    >
+                      <div className="w-12 h-12 bg-gradient-to-r from-[#4ABDAC] to-[#52B788] rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <stat.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="text-2xl font-bold text-[#52B788]">{stat.number}</div>
+                      <div className="text-sm text-[#333333]">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
+            {isMounted ? (
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative"
+              >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <video
                   className="w-full h-auto rounded-2xl"
@@ -559,7 +547,23 @@ export default function ReservationPlatform() {
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
               </div>
-            </motion.div>
+              </motion.div>
+            ) : (
+              <div className="relative">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <video
+                    className="w-full h-auto rounded-2xl"
+                    controls
+                    poster="/images/hero-dashboard.svg"
+                    preload="metadata"
+                  >
+                    <source src="/video/padel_admin.mp4" type="video/mp4" />
+                    مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -1304,7 +1308,6 @@ export default function ReservationPlatform() {
           </motion.div>
         )}
       </AnimatePresence>
-      </div>
-    </>
+    </div>
   );
 }
