@@ -452,9 +452,6 @@ export default function ReservationPlatform() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="h-1 bg-gradient-to-r from-[#52B788] to-[#4ABDAC]"></div>
-
       {/* Admin Panel Section */}
       <section id="admin-panel" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -467,41 +464,75 @@ export default function ReservationPlatform() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <NextImage
-                  src="/images/admin-panel/dashboard-1.png"
-                  alt="داشبورد مدیریت"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="bg-gradient-to-br from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#4ABDAC] to-[#52B788] rounded-lg flex items-center justify-center ml-4">
+                  <BarChart3 className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A3C5E]">داشبورد مدیریت</h3>
+              </div>
+              <p className="text-[#333333] mb-4">نمای کلی از تمام فعالیت‌ها و آمارهای مهم سیستم</p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">آمار رزروها و درآمد</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">کاربران فعال</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">گزارش‌های تحلیلی</span>
+                </div>
               </div>
             </div>
-            
-            <div className="text-right">
-              <h3 className="text-2xl font-bold text-[#1A3C5E] mb-4">داشبورد مدیریت</h3>
-              <p className="text-lg text-[#333333] mb-6">
-                نمای کلی از تمام فعالیت‌ها و آمارهای مهم سیستم
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3 space-x-reverse">
-                  <CheckCircle className="w-5 h-5 text-[#52B788] flex-shrink-0" />
-                  <span className="text-[#333333]">آمار رزروها و درآمد</span>
+
+            <div className="bg-gradient-to-br from-[#F0F8FF] to-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#F4A261] to-[#A8A4FF] rounded-lg flex items-center justify-center ml-4">
+                  <Calendar className="w-6 h-6 text-white" />
                 </div>
-                <div className="flex items-center space-x-3 space-x-reverse">
-                  <CheckCircle className="w-5 h-5 text-[#52B788] flex-shrink-0" />
-                  <span className="text-[#333333]">کاربران فعال</span>
+                <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت رزروها</h3>
+              </div>
+              <p className="text-[#333333] mb-4">کنترل کامل بر تمام رزروها و زمان‌بندی‌ها</p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">تقویم رزرو</span>
                 </div>
-                <div className="flex items-center space-x-3 space-x-reverse">
-                  <CheckCircle className="w-5 h-5 text-[#52B788] flex-shrink-0" />
-                  <span className="text-[#333333]">گزارش‌های تحلیلی</span>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">مدیریت سانس‌ها</span>
                 </div>
-                <div className="flex items-center space-x-3 space-x-reverse">
-                  <CheckCircle className="w-5 h-5 text-[#52B788] flex-shrink-0" />
-                  <span className="text-[#333333]">نمودارهای عملکرد</span>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">تایید/لغو رزرو</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#FFF5F5] to-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#D1495B] to-[#F4A261] rounded-lg flex items-center justify-center ml-4">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت کاربران</h3>
+              </div>
+              <p className="text-[#333333] mb-4">کنترل دسترسی‌ها و مدیریت مشتریان با سطح‌بندی</p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">لیست کاربران</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">سطوح دسترسی</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">مدیریت ادمین‌ها</span>
                 </div>
               </div>
             </div>
@@ -509,15 +540,12 @@ export default function ReservationPlatform() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="h-1 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]"></div>
-
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-gradient-to-br from-[#F0F8FF] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1A3C5E] mb-4">
-              نظر <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">مشتریان</span> ما
+              <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">نظر</span> مشتریان ما
             </h2>
             <p className="text-xl text-[#333333] max-w-3xl mx-auto">
               بیش از 500 کسب‌وکار در سراسر کشور به رزروپلاس اعتماد کرده‌اند
@@ -612,9 +640,6 @@ export default function ReservationPlatform() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="h-1 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]"></div>
-
       {/* Pricing Section */}
       <section id="pricing" className="py-20 bg-gradient-to-br from-[#F8F1E9] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -636,9 +661,6 @@ export default function ReservationPlatform() {
           </div>
         </div>
       </section>
-
-      {/* Divider */}
-      <div className="h-1 bg-gradient-to-r from-[#52B788] to-[#4ABDAC]"></div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]">
@@ -667,9 +689,6 @@ export default function ReservationPlatform() {
           </div>
         </div>
       </section>
-
-      {/* Divider */}
-      <div className="h-1 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]"></div>
 
       {/* Footer */}
       <footer id="contact" className="bg-[#1A3C5E] text-white py-12">
