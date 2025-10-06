@@ -32,14 +32,15 @@ import {
   Building,
   X
 } from 'lucide-react';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import NextImage from 'next/image';
+import Head from 'next/head';
 
 export default function ReservationPlatform() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentFeature, setCurrentFeature] = useState(0);
-  // const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [contactForm, setContactForm] = useState({
     firstName: '',
     lastName: '',
@@ -47,6 +48,11 @@ export default function ReservationPlatform() {
     email: '',
     message: ''
   });
+
+  // حل مشکل Hydration
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -314,21 +320,86 @@ export default function ReservationPlatform() {
 
 
   useEffect(() => {
+    if (!isMounted) return;
+    
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [testimonials.length, isMounted]);
 
   useEffect(() => {
+    if (!isMounted) return;
+    
     const interval = setInterval(() => {
       setCurrentFeature((prev) => (prev + 1) % adminFeatures.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [adminFeatures.length]);
+  }, [adminFeatures.length, isMounted]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F8F1E9] via-white to-[#F0F0F0]">
+    <>
+      <Head>
+        <title>سیستم رزرواسیون حرفه‌ای رزروپلاس | مدیریت رزرو آنلاین</title>
+        <meta name="description" content="سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی. افزایش 40% درآمد با مدیریت هوشمند رزروها." />
+        <meta name="keywords" content="سیستم رزرواسیون, رزرو آنلاین, مدیریت باشگاه, رزرو سینما, رزرو تئاتر, کانتر ساعتی, پنل مدیریت, نرم‌افزار رزرو" />
+        <meta name="author" content="رزروپلاس" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="سیستم رزرواسیون حرفه‌ای رزروپلاس" />
+        <meta property="og:description" content="سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی. افزایش 40% درآمد با مدیریت هوشمند رزروها." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://reservplus.ir" />
+        <meta property="og:image" content="https://reservplus.ir/images/hero-dashboard.svg" />
+        <meta property="og:locale" content="fa_IR" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="سیستم رزرواسیون حرفه‌ای رزروپلاس" />
+        <meta name="twitter:description" content="سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی." />
+        <meta name="twitter:image" content="https://reservplus.ir/images/hero-dashboard.svg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://reservplus.ir" />
+        
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        
+        {/* Schema.org Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "رزروپلاس - سیستم رزرواسیون حرفه‌ای",
+            "description": "سیستم رزرواسیون چندمنظوره برای باشگاه‌های ورزشی، سینما، تئاتر و کانترهای ساعتی",
+            "url": "https://reservplus.ir",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "IRR",
+              "description": "تماس برای استعلام قیمت"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "رزروپلاس",
+              "url": "https://reservplus.ir",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+98-912-345-6789",
+                "contactType": "customer service",
+                "availableLanguage": "Persian"
+              }
+            }
+          })}
+        </script>
+      </Head>
+      
+      <div className="min-h-screen bg-gradient-to-br from-[#F8F1E9] via-white to-[#F0F0F0]">
       {/* Navigation */}
       <motion.nav 
         initial={{ y: -100 }}
@@ -351,6 +422,15 @@ export default function ReservationPlatform() {
                 <a href="#testimonials" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">مشتریان</a>
                 <a href="#contact" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">تماس</a>
               </div>
+            </div>
+            
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button className="text-[#1A3C5E] hover:text-[#4ABDAC] p-2">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
             <motion.button 
             whileHover={{ 
@@ -384,17 +464,17 @@ export default function ReservationPlatform() {
               transition={{ duration: 0.8 }}
               className="text-right"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="block text-[#1A3C5E]">خرید سیستم رزرواسیون</span>
                 <span className="block bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">
                   پلتفرم رزرو حرفه‌ای
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-[#333333] leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl mb-8 text-[#333333] leading-relaxed">
                 <strong>نرم‌افزار رزرواسیون</strong> چندمنظوره برای هر نوع کسب‌وکاری که نیاز به <strong>رزرو آنلاین</strong> دارد. 
                 از باشگاه‌های ورزشی تا سینما، تئاتر و کانترهای ساعتی.
                 <br />
-                <span className="font-semibold text-[#4ABDAC]">افزایش 40% درآمد</span> با <strong>سیستم رزرواسیون هوشمند</strong>.
+                <span className="font-semibold text-[#4ABDAC]">افزایش 40% درآمد</span> با <strong>سیستم رزرواسیون پیشرفته</strong>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <motion.button 
@@ -407,7 +487,7 @@ export default function ReservationPlatform() {
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
-                  className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all"
+                  className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all"
                 >
                   <button 
                     onClick={() => setIsContactModalOpen(true)}
@@ -427,7 +507,7 @@ export default function ReservationPlatform() {
               scale: 0.95,
               transition: { duration: 0.1 }
             }}
-                  className="border-2 border-[#4ABDAC] text-[#4ABDAC] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#4ABDAC] hover:text-white transition-all"
+                  className="border-2 border-[#4ABDAC] text-[#4ABDAC] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-[#4ABDAC] hover:text-white transition-all"
                 >
                   <button 
                     onClick={() => setIsContactModalOpen(true)}
@@ -438,7 +518,7 @@ export default function ReservationPlatform() {
                   </button>
                 </motion.button>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 text-center">
                 {stats.map((stat, index) => (
                   <motion.div 
                     key={stat.label}
@@ -511,7 +591,7 @@ export default function ReservationPlatform() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
             {industries.map((industry, index) => (
               <motion.div
                 key={industry.name}
@@ -590,7 +670,7 @@ export default function ReservationPlatform() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -755,7 +835,7 @@ export default function ReservationPlatform() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <NextImage
@@ -881,13 +961,14 @@ export default function ReservationPlatform() {
             </p>
           </motion.div>
           
-          <motion.div 
-            key={currentTestimonial}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            className="max-w-4xl mx-auto"
-          >
+          {isMounted && (
+            <motion.div 
+              key={currentTestimonial}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              className="max-w-4xl mx-auto"
+            >
             <div className="bg-gradient-to-r from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
               <div className="flex items-center mb-6">
                 <NextImage 
@@ -915,7 +996,8 @@ export default function ReservationPlatform() {
                 &ldquo;{testimonials[currentTestimonial].content}&rdquo;
               </p>
             </div>
-          </motion.div>
+            </motion.div>
+          )}
           
           <div className="flex justify-center mt-8 space-x-2 space-x-reverse">
             {testimonials.map((_, index) => (
@@ -1007,7 +1089,7 @@ export default function ReservationPlatform() {
       {/* Footer */}
       <footer id="contact" className="bg-[#1A3C5E] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div>
               <div className="font-bold text-2xl bg-gradient-to-r from-[#A89078] to-[#4ABDAC] bg-clip-text text-transparent mb-4">
                 رزروپلاس
@@ -1116,7 +1198,7 @@ export default function ReservationPlatform() {
               y: 50,
               transition: { duration: 0.2, ease: "easeIn" }
             }}
-              className="bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl p-4 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto mx-4"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-6">
@@ -1130,7 +1212,7 @@ export default function ReservationPlatform() {
               </div>
 
               <form onSubmit={handleContactSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-[#1A3C5E] mb-2">
                       نام
@@ -1237,6 +1319,7 @@ export default function ReservationPlatform() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+      </div>
+    </>
   );
 }
