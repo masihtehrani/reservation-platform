@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { 
   Calendar, 
   Clock, 
@@ -30,52 +29,15 @@ import {
   UserCheck,
   Crown,
   Building,
-  X
+  BookOpen,
+  Image
 } from 'lucide-react';
 import NextImage from 'next/image';
 
 export default function ReservationPlatform() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [contactForm, setContactForm] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
-
-  const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...contactForm,
-          timestamp: new Date().toISOString(),
-          source: 'reservation-platform'
-        }),
-      });
-
-      if (response.ok) {
-        setContactForm({
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
-          message: ''
-        });
-        setIsContactModalOpen(false);
-        alert('درخواست شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.');
-      } else {
-        throw new Error('خطا در ارسال درخواست');
-      }
-    } catch (error) {
-      console.error('Error submitting contact form:', error);
-      alert('خطا در ارسال درخواست. لطفاً دوباره تلاش کنید.');
+  const openCalendly = () => {
+    if (typeof window !== 'undefined' && (window as unknown as { Calendly?: { initPopupWidget: (options: { url: string }) => void } }).Calendly) {
+      (window as unknown as { Calendly: { initPopupWidget: (options: { url: string }) => void } }).Calendly.initPopupWidget({url: 'https://calendly.com/mahmud-tehrani/30min-1'});
     }
   };
 
@@ -146,9 +108,8 @@ export default function ReservationPlatform() {
               </div>
             </div>
             <a 
-              href="https://miroteam.ir" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#"
+              onClick={(e) => { e.preventDefault(); openCalendly(); }}
               className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center"
             >
                 <Phone className="w-4 h-4 ml-2" />
@@ -178,14 +139,14 @@ export default function ReservationPlatform() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                   <button 
-                    onClick={() => setIsContactModalOpen(true)}
+                    onClick={openCalendly}
                   className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center w-full"
                   >
                     <Play className="w-5 h-5 ml-2" />
                     مشاهده دمو سیستم
                   </button>
                   <button 
-                    onClick={() => setIsContactModalOpen(true)}
+                    onClick={openCalendly}
                   className="border-2 border-[#4ABDAC] text-[#4ABDAC] px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-[#4ABDAC] hover:text-white transition-all flex items-center justify-center w-full"
                   >
                     <Phone className="w-5 h-5 ml-2" />
@@ -464,20 +425,54 @@ export default function ReservationPlatform() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Media Management */}
+            <div className="bg-gradient-to-br from-[#E8F5E8] to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#52B788] to-[#4ABDAC] rounded-lg flex items-center justify-center ml-4">
+                  <Image className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت رسانه‌ها</h3>
+              </div>
+              <p className="text-[#333333] mb-4">آپلود و مدیریت تصاویر و ویدئوهای سایت</p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">آپلود تصاویر و ویدئو</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">مدیریت گالری</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">فشرده‌سازی خودکار</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">پیش‌نمایش رسانه‌ها</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">جایگزینی آسان</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Dashboard Management */}
+            <div className="bg-gradient-to-br from-[#F8F1E9] to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-[#4ABDAC] to-[#52B788] rounded-lg flex items-center justify-center ml-4">
                   <BarChart3 className="w-6 h-6 text-white" />
-              </div>
+                </div>
                 <h3 className="text-xl font-bold text-[#1A3C5E]">داشبورد مدیریت</h3>
-            </div>
+              </div>
               <p className="text-[#333333] mb-4">نمای کلی از تمام فعالیت‌ها و آمارهای مهم سیستم</p>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <CheckCircle className="w-4 h-4 text-[#52B788]" />
                   <span className="text-sm text-[#333333]">آمار رزروها و درآمد</span>
-                  </div>
+                </div>
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <CheckCircle className="w-4 h-4 text-[#52B788]" />
                   <span className="text-sm text-[#333333]">کاربران فعال</span>
@@ -485,17 +480,22 @@ export default function ReservationPlatform() {
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <CheckCircle className="w-4 h-4 text-[#52B788]" />
                   <span className="text-sm text-[#333333]">گزارش‌های تحلیلی</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">نمودارهای تعاملی</span>
+                </div>
               </div>
             </div>
-          </div>
-          
-            <div className="bg-gradient-to-br from-[#F0F8FF] to-white rounded-2xl p-8 shadow-lg">
+
+            {/* Reservation Management */}
+            <div className="bg-gradient-to-br from-[#F0F8FF] to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-[#F4A261] to-[#A8A4FF] rounded-lg flex items-center justify-center ml-4">
                   <Calendar className="w-6 h-6 text-white" />
-          </div>
+                </div>
                 <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت رزروها</h3>
-        </div>
+              </div>
               <p className="text-[#333333] mb-4">کنترل کامل بر تمام رزروها و زمان‌بندی‌ها</p>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2 space-x-reverse">
@@ -510,10 +510,15 @@ export default function ReservationPlatform() {
                   <CheckCircle className="w-4 h-4 text-[#52B788]" />
                   <span className="text-sm text-[#333333]">تایید/لغو رزرو</span>
                 </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">اعلان‌های خودکار</span>
+                </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#FFF5F5] to-white rounded-2xl p-8 shadow-lg">
+            {/* User Management */}
+            <div className="bg-gradient-to-br from-[#FFF5F5] to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-[#D1495B] to-[#F4A261] rounded-lg flex items-center justify-center ml-4">
                   <Users className="w-6 h-6 text-white" />
@@ -533,6 +538,72 @@ export default function ReservationPlatform() {
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <CheckCircle className="w-4 h-4 text-[#52B788]" />
                   <span className="text-sm text-[#333333]">مدیریت ادمین‌ها</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">پروفایل‌های کاربری</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Homepage Management */}
+            <div className="bg-gradient-to-br from-[#FFF8E1] to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#F59E0B] to-[#F97316] rounded-lg flex items-center justify-center ml-4">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت صفحه اصلی</h3>
+              </div>
+              <p className="text-[#333333] mb-4">کنترل کامل بر محتوای صفحه اصلی</p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">ویرایش متون</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">جایگزاری تصاویر</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">جایگزاری ویدئو</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">پیش‌نمایش تغییرات</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Article Management */}
+            <div className="bg-gradient-to-br from-[#FFF2E8] to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#F59E0B] to-[#F97316] rounded-lg flex items-center justify-center ml-4">
+                  <BookOpen className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت مقالات</h3>
+              </div>
+              <p className="text-[#333333] mb-4">ایجاد و مدیریت محتوای متنی و مقالات آموزشی</p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">ویرایشگر پیشرفته</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">مدیریت دسته‌بندی</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">مدیریت برچسب‌ها</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">پیش‌نویس و انتشار</span>
+                </div>
+                <div className="flex items-center space-x-2 space-x-reverse">
+                  <CheckCircle className="w-4 h-4 text-[#52B788]" />
+                  <span className="text-sm text-[#333333]">مدیریت SEO</span>
                 </div>
               </div>
             </div>
@@ -576,7 +647,7 @@ export default function ReservationPlatform() {
                 </div>
               </div>
               <p className="text-[#333333] leading-relaxed text-lg">
-                "سیستم رزرواسیون رزروپلاس کار مدیریت باشگاه را برای ما راحت‌تر کرده است."
+                &ldquo;سیستم رزرواسیون رزروپلاس کار مدیریت باشگاه را برای ما راحت‌تر کرده است.&rdquo;
               </p>
             </div>
 
@@ -603,7 +674,7 @@ export default function ReservationPlatform() {
                 </div>
               </div>
               <p className="text-[#333333] leading-relaxed text-lg">
-                "سیستم رزرواسیون کار مدیریت کانتر را برای ما آسان‌تر کرده است."
+                &ldquo;سیستم رزرواسیون کار مدیریت کانتر را برای ما آسان‌تر کرده است.&rdquo;
               </p>
             </div>
 
@@ -630,7 +701,7 @@ export default function ReservationPlatform() {
                 </div>
               </div>
               <p className="text-[#333333] leading-relaxed text-lg">
-                "سیستم رزرواسیون مدیریت سینما را برای ما راحت‌تر کرده است."
+                &ldquo;سیستم رزرواسیون مدیریت سینما را برای ما راحت‌تر کرده است.&rdquo;
               </p>
             </div>
           </div>
@@ -649,7 +720,7 @@ export default function ReservationPlatform() {
             </p>
             
             <button
-              onClick={() => setIsContactModalOpen(true)}
+              onClick={openCalendly}
               className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all"
             >
               <Phone className="w-5 h-5 ml-2 inline" />
@@ -670,14 +741,14 @@ export default function ReservationPlatform() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
-                  onClick={() => setIsContactModalOpen(true)}
+                  onClick={openCalendly}
               className="bg-white text-[#4ABDAC] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center w-full"
                 >
                   <Play className="w-5 h-5 ml-2" />
                   درخواست دمو رایگان
                 </button>
                 <button 
-                  onClick={() => setIsContactModalOpen(true)}
+                  onClick={openCalendly}
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#4ABDAC] transition-all flex items-center justify-center w-full"
                 >
                   <Phone className="w-5 h-5 ml-2" />
@@ -769,124 +840,6 @@ export default function ReservationPlatform() {
         </div>
       </footer>
 
-      {/* Contact Modal */}
-        {isContactModalOpen && (
-        <div
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-            onClick={() => setIsContactModalOpen(false)}
-          >
-          <div
-            className="bg-white rounded-2xl p-4 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto mx-4"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-[#1A3C5E]">درخواست تماس</h2>
-                <button
-                  onClick={() => setIsContactModalOpen(false)}
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-
-              <form onSubmit={handleContactSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-[#1A3C5E] mb-2">
-                      نام
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={contactForm.firstName}
-                      onChange={(e) => setContactForm({...contactForm, firstName: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4ABDAC] focus:border-transparent transition-all"
-                      placeholder="نام خود را وارد کنید"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-[#1A3C5E] mb-2">
-                      نام خانوادگی
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={contactForm.lastName}
-                      onChange={(e) => setContactForm({...contactForm, lastName: e.target.value})}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4ABDAC] focus:border-transparent transition-all"
-                      placeholder="نام خانوادگی خود را وارد کنید"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#1A3C5E] mb-2">
-                    شماره تماس <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={contactForm.phone}
-                    onChange={(e) => setContactForm({...contactForm, phone: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4ABDAC] focus:border-transparent transition-all"
-                    placeholder="09123456789"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#1A3C5E] mb-2">
-                    ایمیل
-                  </label>
-                  <input
-                    type="email"
-                    value={contactForm.email}
-                    onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4ABDAC] focus:border-transparent transition-all"
-                    placeholder="example@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#1A3C5E] mb-2">
-                    پیام (اختیاری)
-                  </label>
-                  <textarea
-                    value={contactForm.message}
-                    onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4ABDAC] focus:border-transparent transition-all resize-none"
-                    placeholder="توضیحات اضافی خود را بنویسید..."
-                  />
-                </div>
-
-              <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-[#4ABDAC] to-[#52B788] text-white py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all"
-                >
-                  ارسال درخواست
-              </button>
-              </form>
-
-              <div className="mt-6 p-4 bg-gradient-to-r from-[#4ABDAC]/10 to-[#52B788]/10 rounded-lg">
-                <h3 className="text-lg font-semibold text-[#1A3C5E] mb-3 text-center">اطلاعات تماس ما</h3>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center justify-center space-x-2 space-x-reverse">
-                    <Phone className="w-4 h-4 text-[#4ABDAC]" />
-                    <span className="text-[#333333]">09123456789</span>
-                  </div>
-                  <div className="flex items-center justify-center space-x-2 space-x-reverse">
-                    <Globe className="w-4 h-4 text-[#4ABDAC]" />
-                    <a href="https://miroteam.ir" target="_blank" rel="noopener noreferrer" className="text-[#4ABDAC] hover:underline">miroteam.ir</a>
-                  </div>
-                </div>
-              </div>
-              
-              <p className="text-sm text-gray-500 text-center mt-4">
-                پس از ارسال درخواست، در کمتر از 24 ساعت با شما تماس خواهیم گرفت.
-              </p>
-          </div>
-        </div>
-        )}
     </div>
   );
 }

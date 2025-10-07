@@ -75,6 +75,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl" className={vazir.variable}>
+      <head>
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+      </head>
       <body className={`${vazir.className} antialiased`}>
         {children}
       </body>

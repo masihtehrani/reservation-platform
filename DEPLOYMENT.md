@@ -44,4 +44,4 @@ git push origin main
 - Sitemap و robots.txt موجود است
 
 ## آدرس نهایی:
-https://[username].github.io/reservation-platform/
+https://masihtehrani.github.io/reservation-platform/

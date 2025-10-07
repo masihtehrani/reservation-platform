@@ -40,7 +40,7 @@
 
 1. کلون کردن پروژه:
 ```bash
-git clone https://github.com/yourusername/reservation-platform.git
+git clone https://github.com/masihtehrani/reservation-platform.git
 cd reservation-platform
 ```
 
