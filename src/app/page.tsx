@@ -103,7 +103,7 @@ export default function ReservationPlatform() {
                 <a href="#features" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">ویژگی‌ها</a>
                 <a href="#admin-panel" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">پنل مدیریت</a>
                 <a href="#pricing" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">قیمت‌ها</a>
-                <a href="#testimonials" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">مشتریان</a>
+                {/* <a href="#testimonials" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">مشتریان</a> */}
                 <a href="#contact" className="text-[#1A3C5E] hover:text-[#4ABDAC] px-3 py-2 text-sm font-medium transition-colors">تماس</a>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function ReservationPlatform() {
               className="bg-gradient-to-r from-[#52B788] to-[#4ABDAC] text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center"
             >
                 <Phone className="w-4 h-4 ml-2" />
-                تماس با تیم
+                تعیین وقت در تقویم گوگل
               </a>
           </div>
         </div>
@@ -125,17 +125,18 @@ export default function ReservationPlatform() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-right">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                <span className="block text-[#1A3C5E]">خرید سیستم رزرواسیون</span>
-                <span className="block bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-6 mt-10 leading-tight">
+                <span className="block text-[#1A3C5E] mb-6">خرید سیستم رزرواسیون</span>
+                <span className="block  text-[#249c8a] bg-clip-text text-transparent">
                   پلتفرم رزرو حرفه‌ای
                 </span>
+                
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mb-8 text-[#333333] leading-relaxed">
-                <strong>نرم‌افزار رزرواسیون</strong> چندمنظوره برای هر نوع کسب‌وکاری که نیاز به <strong>رزرو آنلاین</strong> دارد. 
-                از باشگاه‌های ورزشی تا سینما، تئاتر و کانترهای ساعتی.
+              <p className="text-lg sm:text-xl md:text-2xl mb-6 text-[#333333] leading-relaxed">
+                <strong>سینما، تئاتر، باشگاه ورزشی، سالن، هتل، اتاق</strong> <br />
+
                 <br />
-                <span className="font-semibold text-[#4ABDAC]">مدیریت بهتر کسب‌وکار</span> با <strong>سیستم رزرواسیون پیشرفته</strong>.
+                <span className="font-semibold text-[#249c8a] ">مدیریت آسان‌تر</span> با <strong>سیستم رزرواسیون پیشرفته رزرو پلاس</strong>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                   <button 
@@ -192,10 +193,10 @@ export default function ReservationPlatform() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1A3C5E] mb-4">
-              برای <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">هر کسب‌وکاری</span>
+              برای <span className=" text-[#249c8a] bg-clip-text text-transparent">هر کسب‌وکاری</span>
             </h2>
             <p className="text-xl text-[#333333] max-w-3xl mx-auto">
-              سیستم رزرواسیون ما برای انواع مختلف کسب‌وکارها طراحی شده است
+              اگر رزرواسیون بخشی از کسب‌وکار شما است، «رزرو پلاس» راهکار مناسب شماست.
             </p>
           </div>
           
@@ -235,7 +236,7 @@ export default function ReservationPlatform() {
               چرا <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">رزروپلاس</span> را انتخاب کنید؟
             </h2>
             <p className="text-xl text-[#333333] max-w-3xl mx-auto">
-              سیستم جامع مدیریت رزرواسیون با ویژگی‌های پیشرفته برای رشد کسب‌وکار شما
+             رزرو پلاس، پلتفرم همه‌کاره‌ی شما در عملیات رزرواسیون
             </p>
           </div>
           
@@ -276,7 +277,7 @@ export default function ReservationPlatform() {
               <div className="w-16 h-16 bg-gradient-to-r from-[#A8A4FF] to-[#D1495B] rounded-lg flex items-center justify-center mb-6">
                 <Smartphone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">100% ریسپانسیو</h3>
+              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">کاملاً ریسپانسیو</h3>
               <p className="text-[#333333] leading-relaxed">طراحی کاملاً ریسپانسیو برای موبایل، تبلت و دسکتاپ</p>
             </div>
             
@@ -292,8 +293,8 @@ export default function ReservationPlatform() {
               <div className="w-16 h-16 bg-gradient-to-r from-[#4ABDAC] to-[#52B788] rounded-lg flex items-center justify-center mb-6">
                 <Database className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">ورودی داده‌ها</h3>
-              <p className="text-[#333333] leading-relaxed">امکان وارد کردن سانس‌ها به صورت دستی، تک‌تک یا دسته‌ای با فایل Excel</p>
+              <h3 className="text-xl font-semibold text-[#1A3C5E] mb-4">ورود آسان داده‌ها</h3>
+              <p className="text-[#333333] leading-relaxed">امکان وارد کردن سانس‌ها به صورت دستی، تک‌تک یا دسته‌ای </p>
             </div>
             
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all">
@@ -336,10 +337,10 @@ export default function ReservationPlatform() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1A3C5E] mb-4">
-              <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">مارکت‌پلیس</span> چندمنظوره
+              <span className="bg-gradient-to-r from-[#4ABDAC] to-[#52B788] bg-clip-text text-transparent">کسب‌وکارهای</span> چندمنظوره
             </h2>
             <p className="text-xl text-[#333333] max-w-4xl mx-auto">
-              قابلیت ایجاد یک پلتفرم جامع که چندین کسب‌وکار می‌توانند در آن حضور داشته باشند و خدمات خود را ارائه دهند
+              ‌اگر مالک مجموعه‌ای هستید که انواع خدمات سینما، باشگاه، سالن و... را در کنار هم ارائه می‌دهید، رزروپلاس برای شماست.
             </p>
           </div>
           
@@ -581,9 +582,9 @@ export default function ReservationPlatform() {
                 <div className="w-12 h-12 bg-gradient-to-r from-[#F59E0B] to-[#F97316] rounded-lg flex items-center justify-center ml-4">
                   <BookOpen className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت مقالات</h3>
+                <h3 className="text-xl font-bold text-[#1A3C5E]">مدیریت مقاله‌ها</h3>
               </div>
-              <p className="text-[#333333] mb-4">ایجاد و مدیریت محتوای متنی و مقالات آموزشی</p>
+              <p className="text-[#333333] mb-4">ایجاد و مدیریت محتوای متنی و مقاله‌های آموزشی</p>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <CheckCircle className="w-4 h-4 text-[#52B788]" />
@@ -611,7 +612,7 @@ export default function ReservationPlatform() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section
       <section id="testimonials" className="py-20 bg-gradient-to-br from-[#F0F8FF] to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -706,7 +707,7 @@ export default function ReservationPlatform() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Pricing Section */}
       <section id="pricing" className="py-20 bg-gradient-to-br from-[#F8F1E9] to-white">
@@ -734,11 +735,10 @@ export default function ReservationPlatform() {
       <section className="py-20 bg-gradient-to-r from-[#4ABDAC] to-[#52B788]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              آماده‌اید کسب‌وکار خود را <span className="text-[#F4A261]">بهبود دهید</span>؟
+            با افتخار آماده‌ایم تا پاسخگوی سوالات شما باشیم.  
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              همین امروز شروع کنید و سیستم رزرواسیون حرفه‌ای را در اختیار داشته باشید
-            </p>
+مدیریت آسان سانس‌ها، دقت در گزارش‌گیری، راحتی در مدیریت محتوای سایت، مدیریت چندمنظوره با رزروپلاس            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={openCalendly}
@@ -801,7 +801,7 @@ export default function ReservationPlatform() {
                 </div>
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <Phone className="w-4 h-4 text-[#4ABDAC]" />
-                  <span className="text-gray-300">09123456789</span>
+                  <span className="text-gray-300">09358397327 - 09195526104</span>
                 </div>
                 <div className="flex items-center space-x-2 space-x-reverse">
                   <Mail className="w-4 h-4 text-[#4ABDAC]" />
